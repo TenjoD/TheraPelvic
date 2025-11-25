@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheraPelvic - Pelvic Floor Rehabilitation</title>
+  <meta name="description" content="Specialized pelvic floor rehabilitation services in Bogotá. Expert care for prenatal, postpartum, incontinence, and sexual health concerns.">
+  <link rel="icon" href="/icon-light-32x32.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/icon-dark-32x32.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-icon.png">
+  <style>
+    /* CSS Variables */
+    :root {
+      --background: #faf8f3;
+      --foreground: #1a1a1a;
+      --card: #ffffff;
+      --card-foreground: #1a1a1a;
+      --primary: #2d5f4f;
+      --primary-foreground: #ffffff;
+      --secondary: #e8d4c8;
+      --secondary-foreground: #2d5f4f;
+      --muted: #d4c5b9;
+      --muted-foreground: #6b7280;
+      --accent: #4a9b7f;
+      --accent-foreground: #ffffff;
+      --border: #e5ddd3;
+      --radius: 0.625rem;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(250, 248, 243, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-foreground);
+      font-weight: bold;
+      font-size: 0.875rem;
+    }
+
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: rgba(26, 26, 26, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      display: none;
+      padding: 0.5rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #254d40;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .menu-icon span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--foreground);
+      transition: transform 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      background-color: var(--background);
+      padding: 1rem;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.75rem 0;
+      color: rgba(26, 26, 26, 0.7);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu .btn-primary {
+      display: block;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 10rem 1.5rem 5rem;
+      background-color: var(--background);
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: rgba(26, 26, 26, 0.7);
+      line-height: 1.75;
+    }
+
+    .hero-image {
+      display: none;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 1rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      font-size: 1.125rem;
+      color: rgba(26, 26, 26, 0.7);
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-cols-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Card Styles */
+    .card {
+      padding: 2rem;
+      background-color: rgba(232, 212, 200, 0.3);
+      border: 1px solid rgba(232, 212, 200, 0.5);
+      border-radius: var(--radius);
+    }
+
+    .card-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-foreground);
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: rgba(26, 26, 26, 0.7);
+    }
+
+    /* About Section */
+    .about {
+      background-color: white;
+    }
+
+    .mission-box {
+      margin-top: 4rem;
+      background-color: rgba(74, 155, 127, 0.1);
+      border: 1px solid rgba(74, 155, 127, 0.2);
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
+
+    .mission-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .mission-box p {
+      color: rgba(26, 26, 26, 0.7);
+      line-height: 1.75;
+    }
+
+    /* Vision Section */
+    .vision {
+      background-color: rgba(232, 212, 200, 0.1);
+    }
+
+    .vision-content {
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .vision-content p {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .vision-content p:first-of-type {
+      color: rgba(26, 26, 26, 0.8);
+    }
+
+    .vision-content p:last-of-type {
+      color: rgba(26, 26, 26, 0.7);
+    }
+
+    .vision-cards {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 4rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .vision-card {
+      padding: 1.5rem;
+      background-color: white;
+      border: 1px solid rgba(232, 212, 200, 0.3);
+      border-radius: var(--radius);
+      transition: border-color 0.3s;
+    }
+
+    .vision-card:hover {
+      border-color: rgba(45, 95, 79, 0.3);
+    }
+
+    .vision-card-icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .vision-card-icon-box {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: rgba(45, 95, 79, 0.1);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .vision-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .vision-card p {
+      color: rgba(26, 26, 26, 0.7);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    /* Services Section */
+    .services {
+      background-color: var(--background);
+    }
+
+    .service-card {
+      background-color: white;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(45, 95, 79, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: rgba(26, 26, 26, 0.7);
+      font-size: 0.875rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .service-link {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .service-link:hover {
+      color: var(--primary);
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-us {
+      background-color: white;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    .feature-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-content p {
+      color: rgba(26, 26, 26, 0.7);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: var(--background);
+    }
+
+    .contact-form {
+      max-width: 56rem;
+      margin: 0 auto;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: box-shadow 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(45, 95, 79, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #254d40;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .info-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item p {
+      color: rgba(26, 26, 26, 0.7);
+      line-height: 1.75;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h4 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo-icon {
+      width: 2rem;
+      height: 2rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+
+    .footer-logo-text {
+      font-family: var(--font-serif);
+      font-weight: 600;
+    }
+
+    .footer-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .btn-primary {
+        display: block;
+      }
+
+      .menu-btn {
+        display: none;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3.75rem;
+      }
+
+      .hero-image {
+        display: flex;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-info {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .feature-list-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">TP</div>
+        <span class="logo-text">TheraPelvic</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#services">Servicios</a>
+        <a href="#about">Nosotros</a>
+        <a href="#contact">Contacto</a>
+      </div>
+
+      <button class="btn-primary">Agendar Cita</button>
+
+      <button class="menu-btn" id="menuBtn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Servicios</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contact">Contacto</a>
+      <button class="btn-primary">Agendar Cita</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Tu Salud Pélvica es Nuestra Prioridad</h1>
+        <p>Rehabilitación especializada del piso pélvico con enfoque integral y humanizado. Mejora tu calidad de vida con nuestros profesionales certificados y tecnología de punta.</p>
+        <div>
+          <button class="btn-primary">Conocer Servicios</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/therapelvic-logo.png" alt="Therapelvic Logo - Fisioterapia" class="hero-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Quiénes Somos</h2>
+        <p>En TheraPelvic brindamos atención especializada, integral y humanizada para la prevención, tratamiento y rehabilitación del piso pélvico.</p>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <div class="card-icon">✓</div>
+          <h3>Profesionales Certificados</h3>
+          <p>Equipo de fisioterapeutas con formación continua en técnicas modernas basadas en evidencia científica.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✓</div>
+          <h3>Tecnología de Punta</h3>
+          <p>Equipos especializados como biofeedback, electroestimulación y vibración terapéutica para mejores resultados.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✓</div>
+          <h3>Atención Integral</h3>
+          <p>Enfoque holístico que considera todas las dimensiones de tu bienestar: física, psicológica y social.</p>
+        </div>
+      </div>
+
+      <div class="mission-box">
+        <h3>Nuestra Misión</h3>
+        <p>Ofrecer servicios de rehabilitación especializados para atender pacientes con trastornos del piso pélvico, con un enfoque participativo del paciente y sus familiares, contribuyendo a su bienestar físico e incremento de su calidad de vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section id="vision" class="vision">
+    <div class="container">
+      <div class="vision-content">
+        <h2 class="section-title"><span style="font-family: var(--font-serif); font-size: 2.5rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 1.5rem;">Nuestra Visión</span></h2>
+        <p>Para el 2031 seremos una empresa ya posicionada con gran influencia a nivel distrital, desarrollando, aumentando y mejorando nuestro amplio portafolio de servicios-terapias para apoyar a adultos y adultos mayores que presenten trastornos del piso pélvico.</p>
+        <p>Brindaremos un servicio integral, de fácil acceso y de la más alta calidad, posicionándonos como referente en la rehabilitación del piso pélvico a nivel distrital.</p>
+      </div>
+
+      <div class="vision-cards">
+        <div class="vision-card">
+          <div class="vision-card-icon">
+            <div class="vision-card-icon-box">📈</div>
+          </div>
+          <h3>Posicionamiento Regional</h3>
+          <p>Convertirnos en referente en tratamiento de trastornos del piso pélvico a nivel distrital.</p>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card-icon">
+            <div class="vision-card-icon-box">🎯</div>
+          </div>
+          <h3>Portafolio Expandido</h3>
+          <p>Ampliar y mejorar continuamente nuestros servicios y terapias especializadas.</p>
+        </div>
+
+        <div class="vision-card">
+          <div class="vision-card-icon">
+            <div class="vision-card-icon-box">❤️</div>
+          </div>
+          <h3>Acceso Fácil</h3>
+          <p>Garantizar que nuestros servicios sean de fácil acceso para toda la población objetivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros Servicios</h2>
+        <p>Paquetes terapéuticos especializados diseñados para cada etapa de vida</p>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <div class="service-card">
+          <div class="service-icon">🤰</div>
+          <h3>Prenatal - Baby on the Way</h3>
+          <p>Programa integral para acompañar tu embarazo con valoración física trimestral, terapia manual, entrenamiento pélvico y actividad física.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3>Postparto - New Baby</h3>
+          <p>Recuperación integral post parto con evaluación completa, telemedicina, ejercicio terapéutico y vibración terapéutica.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💪</div>
+          <h3>Incontinencia - Power Bladder</h3>
+          <p>Tratamiento especializado para incontinencia urinaria con biofeedback, electroestimulación y reeducación del piso pélvico.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧒</div>
+          <h3>Incontinencia Infantil - Power Bladder Kids</h3>
+          <p>Programa enfocado en niños para el control de esfínteres mediante terapia manual, conciencia corporal y educación a padres.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">❤️</div>
+          <h3>Disfunción Sexual - Return Sexuality</h3>
+          <p>Recuperación de la función sexual con terapia manual pélvica, biofeedback y ondas de choque (hombres).</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Estreñimiento - By Estreñimiento</h3>
+          <p>Reeducación defecatoria, terapia manual y biofeedback para mejorar el tránsito intestinal y función pélvica.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="section-title">
+        <h2>Por Qué Elegirnos</h2>
+      </div>
+
+      <div class="feature-list-container">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Ubicación Céntrica</h3>
+              <p>Localizado en Galerías, Teusaquillo, de fácil acceso para todos nuestros pacientes.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Atención Personalizada</h3>
+              <p>Cada tratamiento se adapta a tus necesidades específicas y etapa de vida.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Basado en Evidencia</h3>
+              <p>Protocolos y técnicas respaldados por la última investigación científica en fisioterapia pélvica.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Ambiente Seguro y Confidencial</h3>
+              <p>Espacio sin estigma donde puedes hablar libremente sobre tu salud pélvica con total privacidad.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Instalaciones Modernas</h3>
+              <p>Gimnasio completo con equipamiento especializado para sesiones variadas y entretenidas.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">→</div>
+            <div class="feature-content">
+              <h3>Apoyo Integral</h3>
+              <p>Involucramos a familia y seres queridos para garantizar el éxito de tu tratamiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contacta con Nosotros</h2>
+        <p>Completa el formulario para agendar tu consulta inicial o resolver tus dudas.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Nombre</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Servicio de Interés</label>
+          <select id="service" name="service" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="prenatal">Prenatal - Baby on the Way</option>
+            <option value="postpartum">Postparto - New Baby</option>
+            <option value="incontinence">Incontinencia - Power Bladder</option>
+            <option value="kids">Incontinencia Infantil - Power Bladder Kids</option>
+            <option value="sexual">Disfunción Sexual - Return Sexuality</option>
+            <option value="constipation">Estreñimiento - By Estreñimiento</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre ti y tus necesidades..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar Consulta</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <h4>Ubicación</h4>
+          <p>Galerías, Teusaquillo<br>Bogotá, Colombia</p>
+        </div>
+        <div class="info-item">
+          <h4>Horarios</h4>
+          <p>Lunes - Viernes<br>8:00 AM - 6:00 PM</p>
+        </div>
+        <div class="info-item">
+          <h4>Contacto</h4>
+          <p>(601) XXX-XXXX<br>info@therapelvic.co</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">TP</div>
+            <span class="footer-logo-text">TheraPelvic</span>
+          </div>
+          <p class="footer-description">Rehabilitación especializada del piso pélvico con enfoque humanizado.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#">Prenatal</a></li>
+            <li><a href="#">Postparto</a></li>
+            <li><a href="#">Incontinencia</a></li>
+            <li><a href="#">Disfunción Sexual</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Equipo</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Términos de Servicio</a></li>
+            <li><a href="#">Aviso Legal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 TheraPelvic S.A.S. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData);
+      
+      console.log('Form submitted:', data);
+      
+      // Show success message
+      alert('¡Gracias por contactarnos! Te responderemos pronto.');
+      
+      // Reset form
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
